@@ -19,6 +19,18 @@ scripts/package-app.sh
 
 The app is written to `dist/SoftLock.app`.
 
+## Test
+
+SoftLock is a macOS-only Swift package (`platforms: [.macOS(.v14)]` in `Package.swift`), so
+tests run on the Mac, not in the iOS Simulator. The tests cover the pure logic in
+`SoftLockCore` (`Tests/SoftLockTests`); the AppKit target is not unit-tested.
+
+```bash
+swift test
+# or, through Xcode (the only scheme is "SoftLock"):
+xcodebuild test -scheme SoftLock -destination 'platform=macOS'
+```
+
 ## Run
 
 ```bash
